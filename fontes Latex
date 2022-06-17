@@ -3,3 +3,9 @@
 
 \usepackage{fontspec}
 \setmainfont{Arial}
+
+https://aprendolatex.wordpress.com/category/tipos-de-letra/
+
+ARIAL:
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{helvet}
