@@ -1,0 +1,5 @@
+\usepackage{lmodern}	% Usa a fonte Latin Modern
+\usepackage{newtxtext,newtxmath}
+
+\usepackage{fontspec}
+\setmainfont{Arial}
