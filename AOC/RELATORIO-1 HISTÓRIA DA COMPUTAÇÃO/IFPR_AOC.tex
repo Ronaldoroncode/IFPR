@@ -1,0 +1,524 @@
+%% abtex2-modelo-projeto-pesquisa.tex, v-1.9.7 laurocesar
+%% Copyright 2012-2018 by abnTeX2 group at http://www.abntex.net.br/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://www.abntex.net.br/
+%%
+%% This work consists of the files abntex2-modelo-projeto-pesquisa.tex
+%% and abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Projeto de pesquisa em conformidade com 
+% ABNT NBR 15287:2011 Informação e documentação - Projeto de pesquisa -
+% Apresentação 
+% ------------------------------------------------------------------------ 
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+
+\usepackage{helvet}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+
+
+%\usepackage{helvet}			% Usa a fonte Latin Modern
+%\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{História da Computação}
+\autor{José Ronaldo dos Santos Oliveira}
+\local{Irati}
+\data{2022}
+\instituicao{%
+  Instito Federal do Paraná - IFPR
+  \par
+  Organização e Arquitetura de Computadores \\
+  Tecnologia em Análise e Desenvolvimento de Sistemas \\
+  1º período - Noturno}
+\tipotrabalho{Pesquisa}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Pesquisa acadêmica sobre a História da Computação.}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{projeto de pesquisa}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% ---
+\imprimirfolhaderosto
+% ---
+
+% ---
+% NOTA DA ABNT NBR 15287:2011, p. 4:
+%  ``Se exigido pela entidade, apresentar os dados curriculares do autor em
+%     folha ou página distinta após a folha de rosto.''
+% ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+% \pdfbookmark[0]{\listfigurename}{lof}
+% \listoffigures*
+% \cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+% \pdfbookmark[0]{\listtablename}{lot}
+% \listoftables*
+% \cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+% \begin{siglas}
+%   \item[ABNT] Associação Brasileira de Normas Técnicas
+%   \item[abnTeX] ABsurdas Normas para TeX
+% \end{siglas}
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+% \begin{simbolos}
+%   \item[$ \Gamma $] Letra grega Gama
+%   \item[$ \Lambda $] Lambda
+%   \item[$ \zeta $] Letra grega minúscula zeta
+%   \item[$ \in $] Pertence
+% \end{simbolos}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\chapter*[Introdução]{Introdução}
+\addcontentsline{toc}{chapter}{Introdução}
+
+A capacidade dos seres humanos em calcular quantidades dos mais variados modos foi um dos fatores que possibilitaram o desenvolvimento da matemática e da lógica. Nos primórdios da matemática e da álgebra, utilizavam-se os dedos das mãos para efetuar cálculos.
+\par
+A mais antiga ferramenta conhecida para uso em computação foi o ábaco, e foi inventado na Babilônia por volta de 2400 a.C. O seu estilo original de uso, era desenhar linhas na areia com rochas.
+\par
+A Máquina de Anticítera está entre os grandes mistérios da humanidade, pois sua origem e funções remontam a engenharia das antigas civilizações.
+\par
+Essa invenção foi descoberta a 42 metros de profundidade no fundo do Mediterrâneo. Embora seja considerada uma máquina de calcular, à Máquina de Anticítera não tem a mesma configuração que os computadores atuais. Nesse sentido, mais se parece uma calculadora astronômica gigante, porque conseguia identificar os movimentos dos cinco planetas visíveis a olho nu. Mais ainda, monitorava as fases da Lua, e os eclipses, tanto o solar e lunar.
+
+% ----------------------------------------------------------
+% Uma breve história do Ábaco
+% ----------------------------------------------------------
+\chapter{Ábaco}
+A computação inicia-se nos primórdios da história da humanidade, em sua necessidade de armazenar informações, efetuar contagem e criar mecanismos que lhe facilitasse a chegada de resultados complexos baseados nesta contagem.
+\par
+Um dos exemplos mais antigos é o ábaco, utilizado por povos de diferentes partes do mundo. Seu primeiro registro é datado de 5500 a.C. pelos povos que constituíam a Mesopotâmia.
+\par
+Muitos povos da antiguidade utilizavam o ábaco para realizar cálculos do dia a dia, principalmente no comércio e no desenvolvimento de construções civis. Ele pode ser considerado a primeira calculadora ou máquina da história, pois utilizava um sistema bastante simples e muito eficiente na resolução de problemas matemáticos. Em operações matemáticas, ele é bastante útil para soma e subtração, para multiplicação e divisão não é muito recomendado.
+
+% ----------------------------------------------------------
+% Uma breve história da Máquina de Anticítera
+% ----------------------------------------------------------
+\chapter{Máquina de Anticítera}
+A Máquina de Anticítera, é um sofisticado mecanismo com 2 mil anos de idade que é considerado o primeiro computador analógico da história.
+\par
+Tendo origem na Grécia antiga, a Máquina de Anticítera está entre os grandes mistérios da humanidade. Era usada para prever eclipses, os ciclos lunares, sendo possível obter especificidades sobre o dia, a hora, a direção da sombra e até a cor que a Lua teria no céu.
+\begin{figure}[htb]
+	\begin{center}
+	\caption{\label{fig_teste}Mecanísmo de Antecítera}
+	\includegraphics[scale=0.3]{img/mecanismoAnticitera.jpg} \\
+	Fonte: Google images
+	\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+	\begin{center}
+	\caption{\label{fig_teste}Mecanísmo de Antecítera}
+	\includegraphics[scale=0.5]{img/mecanismoAnticitera2.jpg} \\
+	Fonte: Google images
+	\end{center}
+\end{figure}
+
+
+% ----------------------------------------------------------
+% Uma breve história da Calculadora Mecânica
+% ----------------------------------------------------------
+\chapter{Calculadora Mecânica}
+
+Em 1642, o matemático francês Blaise Pascal desenvolveu o que pode ser chamado de primeira calculadora mecânica da história, a Máquina de Pascal. Seu funcionamento era baseado no uso de rodas interligadas que giravam na realização dos cálculos. A ideia inicial de Pascal era desenvolver uma máquina que realizasse as quatro operações matemáticas básicas, o que não aconteceu na prática, pois ela era capaz apenas de somar e subtrair.
+\par
+Em 1672, o alemão Gottfried Leibnitz conseguiu o que Pascal desejava. Criou uma calculadora que efetuava soma, divisão, além de raiz quadrada. Gottfried Leibniz (1646 - 1716) ampliou essas concepções ao introduzir um projeto mais intricado capaz de, mecanicamente, realizar operações de multiplicação e divisão. Ele também é muito lembrado por seu pioneirismo no uso do sistema binário de numeração.
+
+% ----------------------------------------------------------
+% Uma breve história da Programação Funcional
+% ----------------------------------------------------------
+\chapter{Programação Funcional}
+
+Em 1801, o costureiro Joseph Marie Jacquard atuava no ramo de desenhos em tecidos, tarefa que ocupava muito tempo de trabalho manual. Vendo esse problema, ele construiu a primeira máquina realmente programável, com o objetivo de recortar os tecidos de forma automática.
+\par
+Tal mecanismo foi chamado de Tear Programável, pois aceitava cartões com entrada do sistema. Dessa maneira, Jacquard perfurava o cartão com o desenho desejado e a máquina o reproduzia no tecido. Sua máquina era capaz de produzir tecidos com desenhos bonitos e intrincados. Foi tamanho o sucesso que Jacquard foi quase morto quando levou o tear para Lyons, pois as pessoas tinham medo que o tear lhes fizesse perder o emprego.
+
+
+% ----------------------------------------------------------
+% Uma breve história de Charles Babbage (1791 - 1871) e Ada Augusta Byron King (1815 -1852)
+% ----------------------------------------------------------
+\chapter{Charles Babbage (1791 - 1871) e Ada Augusta Byron King (1815 -1852)}
+
+O matemático inglês Charles Babbage (1791 - 1871) é conhecido como o “Pai do computador”. Babbage projetou o chamado “Calculador Analítico”, muito próximo da concepção de um computador atual. Ele concebeu o engenho diferencial, um dispositivo mecânico capaz de construir tabelas de funções por meio do método das diferenças finitas, ou seja, uma máquina controlada por um programa. Esta máquina seria dotada de uma unidade central de processamento capaz de escolher entre ações alternativas dependendo dos resultados de eventos anteriores (um recurso conhecido como desvio condicional).
+\par
+A escritora e matemática britânica Ada Augusta Byron King (1815 - 1852), mais conhecida como Ada Lovelace, desde cedo interessou-se pelo trabalho de Babbage. Ela tornou-se pioneira da lógica de programação, escrevendo séries de instruções para o "Calculador Analítico”, projeto de Charles Babbage. Também, é considerada a primeira programadora de computadores da história por sua capacidade de imaginar e descrever estruturas como o desvio condicional, o laço condicional e as sub-rotinas, conceitos que foram incorporados aos computadores modernos e que são essenciais para seu funcionamento.
+Ada percebeu que a máquina de Babbage, era mais que uma mera calculadora, ela era uma máquina capaz de simular qualquer outra máquina de computação desde que programada com os cartões corretos. Ada destacou também que tal máquina seria facilmente capaz de trabalhar com símbolos quaisquer e não apenas com números.
+
+
+% ----------------------------------------------------------
+% Uma breve história de Computadores pré-modernos
+% ----------------------------------------------------------
+\chapter{Computadores pré-modernos}
+
+Na primeira metade do século XX, vários computadores mecânicos foram desenvolvidos, e com o passar do tempo componentes eletrônicos foram adicionados aos projetos.
+\par
+Foi em 1942 que surgiu o Atanasoff-Berry Computer, também conhecido como ABC, foi o primeiro computador a usar válvulas termiônicas. Ele tinha válvulas eletrônicas, números binários, capacitores e um quilômetro de fios. Foi desenvolvido como um calculador eletrônico binário destinado a resolver sistemas de equações lineares.
+\par
+A segunda guerra mundial (1939 -1945), foi um grande incentivo no desenvolvimento de computadores, visto que as máquinas estavam se tornando mais úteis em tarefas de desencriptação de mensagens inimigas e criação de armas mais inteligentes. Entre os projetos desenvolvidos no período, os que mais se destacaram foram o Mark I, em 1944, desenvolvido na Universidade Harvard(EUA), e o Colossus, em 1946, criado por Allan Turing.
+\par
+O Colossus foi um dos primeiros dispositivos eletrônicos a funcionar com algumas características que lembram as do computador, mas não era de propósito geral e não possuía um programa armazenado.
+
+
+% ----------------------------------------------------------
+% Uma breve história da Computação Moderna
+% ----------------------------------------------------------
+\chapter{Computação Moderna}
+
+A computação moderna pode ser definida pelo uso de computadores digitais, que não utilizam componentes analógicos como base de seu funcionamento. Em 1945 ocorreu uma revolução no mundo da computação com o lançamento do Electronic Numerical Integrator And Computer - ENIAC, desenvolvido pelos cientistas norte-americanos John Eckert e John Mauchly. Essa máquina era em torno de mil vezes mais rápida que qualquer outra da época.
+\par
+Com o ENIAC, a maioria das operações era realizada sem a necessidade de movimentar peças de forma manual, e sim pela entrada de dados no painel de controle. Cada operação podia ser acessada através de configurações-padrão de chaves e switches.
+\par
+Temos também o EDVAC (Electronic Discrete Variable Automatic Computer, que foi um dos primeiros computadores eletrônicos. Ao contrário do ENIAC que operava com base em codificação decimal, o EDVAC foi projetado para utilizar códigos binários e manter os programas armazenados na memória, respeitando a arquitetura de von Neumann.
+\par
+O ACE (Automatic Computing Engine) foi o primeiro computador projetado no Reino Unido, uma realização de Alan M. Turing. A proposta era para a construção de um computador eletrônico, e Turing ofereceu ricos detalhes relacionados ao projeto dos circuitos e à especificação das unidades de hardware, inclusive mostrando programas preliminares em código de máquina.
+\par
+Em 21 de Junho de 1948, surgiu o primeiro computador digital de propósito geral com programa armazenado a efetivamente funcionar, apelidado carinhosamente de “Manchester Baby”.  Construído no Royal Society Computing Machine Laboratory na Universidade de Manchester, pelos engenheiros F.C. Williams e Tom Kilburn.  O primeiro programa, armazenado em um tubo de raios catódicos, possuía apenas dezessete instruções.
+
+
+% ----------------------------------------------------------
+% Uma breve história das Gerações de Computadores
+% ----------------------------------------------------------
+\chapter{Gerações de Computadores}
+
+Primeira geração (1945 - 1959), usavam válvulas eletrônicas, quilômetros de fios, eram lentos, enormes e esquentavam muito.
+\par
+A segunda geração (1959 -1964) substituiu as válvulas eletrônicas por transistores e os fios de ligação por circuitos impressos, o que tornou os computadores mais rápidos, menores e de custo mais baixo.
+A terceira geração (1964 - 1970) foi construída com circuitos integrados, proporcionando maior compactação, redução dos custos e velocidade de processamento da ordem de microsegundos.
+\par
+A quarta geração (1970 - até hoje) é caracterizada por um aperfeiçoamento da tecnologia já existente, proporcionando uma otimização da máquina para os problemas do usuário, maior grau de miniaturização, confiabilidade e velocidade maior, já da ordem de nanosegundos. Essa geração é conhecida pelo advento dos microprocessadores e computadores pessoais, com redução drástica do tamanho e do preço das máquinas.
+\par
+O Apple I, lançado em 1976 por Steve Jobs, pode ser considerado o primeiro computador pessoal, pois acompanhava um pequeno monitor que exibia o que estava acontecendo no PC. Todos os computadores pessoais lançados atualmente são bastante derivados das ideias criadas pela Apple e pela Microsoft.
+O termo quinta geração, foi criado pelos japoneses para descrever os potentes computadores “inteligentes” que queriam construir em meados da década de 1990. Esta geração é baseada em hardware de processamento paralelo e a IA (Inteligência Artificial) . IA é um novo ramo da ciência da computação, que interpreta meio e método de fazer computadores pensar como seres humanos.
+
+
+% ----------------------------------------------------------
+% Capitulo de textual  
+% ----------------------------------------------------------
+%\chapter{Elementos textuais}
+
+%\index{elementos textuais}A norma ABNT NBR 15287:2011, p. 5, apresenta a
+%seguinte orientação quanto aos elementos textuais:
+
+%\begin{citacao}
+%O texto deve ser constituído de uma parte introdutória, na qual devem ser
+%expostos o tema do projeto, o problema a ser abordado, a(s) hipótese(s),
+%quando couber(em), bem como o(s) objetivo(s) a ser(em) atingido(s) e a(s)
+%justificativa(s). É necessário que sejam indicados o referencial teórico que
+%o embasa, a metodologia a ser utilizada, assim como os recursos e o cronograma
+%necessários à sua consecução.
+%\end{citacao}
+
+%Consulte as demais normas da série ``Informação e documentação'' da ABNT
+%para outras informações. Uma lista com as principais normas dessa série, todas
+%observadas pelo \abnTeX, é apresentada em \citeonline{abntex2classe}.
+
+% ----------------------------------------------------------
+% Capitulo com exemplos de comandos inseridos de arquivo externo 
+% ----------------------------------------------------------
+
+%\include{abntex2-modelo-include-comandos}
+
+% ---
+% Finaliza a parte no bookmark do PDF
+% para que se inicie o bookmark na raiz
+% e adiciona espaço de parte no Sumário
+% ---
+%\phantompart
+
+% ---
+% Conclusão
+% ---
+\chapter*[Conclusão]{Conclusão}
+\addcontentsline{toc}{chapter}{Conclusão}
+
+Hoje, os computadores estão presentes em nossa vida de uma forma nunca vista. Em casa, na escola, na universidade, na empresa e em qualquer outro lugar, eles estão sempre entre nós. Mas nem sempre foi assim, pois ao longo da história da humanidade, muitas mudanças ocorreram até os tempos atuais.
+\par
+Podemos dizer então, que as máquinas surgiram inicialmente da necessidade humana em realizar primeiramente cálculos mais rápidos. Foi então que surgiu o ábaco, a primeira calculadora. Tempos depois surgiram as calculadoras mecânicas e até mesmo um tear programável que alavancou a produção de desenhos realizados nas peças de tecidos e mecanizou a produção têxtil.
+\par
+A revolução industrial e até mesmo as guerras, contribuíram para a criação de máquinas mais eficazes e potentes, que poderiam ser usadas para desenvolvimento empresarial ou até mesmo pessoal.
+\par
+Durante a história da humanidade, muitos projetos de máquinas foram desenvolvidos, porém, não tiveram o resultado desejado. Mas isso ajudou outras pessoas a terem novas ideias com base nos projetos que deram ou não certo.
+\par
+Hoje temos aparelhos que há 100 anos atrás era impossível, e podemos concluir que daqui a 100 anos teremos uma tecnologia totalmente diferente da dos dias atuais. Porque a evolução e a criatividade humana não é limitada, temos que pensar a frente de nosso tempo, pensar fora da caixa. Pois não teríamos a tecnologia que temos hoje, se alguém não tivesse se arriscado e colocado o projeto na prática. Não podemos ter medo de errar, pois é errando que evoluímos.
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+%\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{abntex2-modelo-references}
+.\\
+https://segredosdomundo.r7.com/maquina-de-anticitera/
+\\
+\\
+https://www.tecmundo.com.br/tecnologia-da-informacao/1697-a-historia-dos-computadores-e-da-computacao.htm
+\\
+\\
+https://pt.wikiversity.org/wiki/Introdu%C3%A7%C3%A3o_%C3%A0_Ci%C3%AAncia_da_Computa%C3%A7%C3%A3o/Hist%C3%B3ria_da_Ci%C3%AAncia_da_Computa%C3%A7%C3%A3o
+\\
+\\
+https://www.fgv.br/rae/artigos/revista-rae-vol-34-num-3-ano-1994-nid-44306/
+\\
+\\
+https://www.dca.fee.unicamp.br/~leopini/DISCIPLINAS/EA869/2018-1/b1-historia-1.pdf
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+%\begin{apendicesenv}
+
+% Imprime uma página indicando o início dos apêndices
+%\partapendices
+
+% ----------------------------------------------------------
+%\chapter{Quisque libero justo}
+% ----------------------------------------------------------
+
+%\lipsum[50]
+
+% ----------------------------------------------------------
+%\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+%ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+% ----------------------------------------------------------
+%\lipsum[55-57]
+
+%\end{apendicesenv}
+% ---
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+%\begin{anexosenv}
+
+% Imprime uma página indicando o início dos anexos
+%\partanexos
+
+% ---
+%\chapter{Morbi ultrices rutrum lorem.}
+% ---
+%\lipsum[30]
+
+% ---
+%\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+%parturient montes nascetur ridiculus mus}
+% ---
+
+%\lipsum[31]
+
+% ---
+%\chapter{Fusce facilisis lacinia dui}
+% ---
+
+%\lipsum[32]
+
+%\end{anexosenv}
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+
+%\phantompart
+
+%\printindex
+
+
+\end{document}
